@@ -6,5 +6,5 @@ const issueData = {
     description: 'El servidor está experimentando un alto consumo de CPU.',
 };
 
-// Llamar a la función para enviar el correo
+// Llamar a la función para enviar el corressos
 sendEmail(issueData);
