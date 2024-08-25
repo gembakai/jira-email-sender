@@ -1,8 +1,14 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
+import express from 'express';
+import nodemailer from 'nodemailer';
+import fetch from 'node-fetch';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// Necesitas estas dos líneas para manejar __dirname en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Configuración del transporte de correo utilizando el servidor SMTP de Namecheap
 let transporter = nodemailer.createTransport({
@@ -11,7 +17,7 @@ let transporter = nodemailer.createTransport({
     secure: false, // true para conexiones seguras (SSL/TLS), false para no seguras
     auth: {
         user: 'admin@gembakai.com', // Tu dirección de correo
-        pass: 'VSxN6,5*az"5B;g', // Tu contraseña
+        pass: process.env.EMAIL_PASSWORD, // Usa la variable de entorno para la contraseña
     },
 });
 
@@ -26,9 +32,8 @@ const downloadAttachment = async (attachment) => {
             'Accept': 'application/json'
         }
     });
-    
-    
-    // Guardar el archivo en un directorio temporalss
+
+    // Guardar el archivo en un directorio temporal
     const filePath = path.join(__dirname, attachment.filename);
     const fileStream = fs.createWriteStream(filePath);
     await new Promise((resolve, reject) => {
@@ -81,7 +86,7 @@ const sendEmail = async (issueData) => {
 
         console.log('Correo enviado: %s', info.messageId);
 
-        // Limpiar los archivos temporales después de enviar el correo electrónico
+        // Limpiar los archivos temporales después de enviar el correo
         attachmentFiles.forEach(file => {
             fs.unlinkSync(file.path);
         });
