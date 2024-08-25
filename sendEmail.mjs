@@ -78,7 +78,7 @@ const sendEmail = async (issueData) => {
 
         let info = await transporter.sendMail({
             from: '"Gembakai" <admin@gembakai.com>', // Remitente
-            to: 'wballestero@gembakai.com, info@gembakai.com', // Destinatarios
+            to: 'wballestero@gembakai.com, will.ballestero@outlook.com', // Destinatarios
             subject: `Nueva Incidencia: ${issueKey}`, // Asunto del correo
             text: emailContent, // Contenido del correo con los datos específicos
             attachments: attachmentFiles // Adjuntar los archivos descargados
