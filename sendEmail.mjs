@@ -27,7 +27,7 @@ const downloadAttachment = async (attachment) => {
         method: 'GET',
         headers: {
             'Authorization': `Basic ${Buffer.from(
-                `admin@gembakai.com:${process.env.JIRA_API_TOKEN}`
+                `jira.grupodim@gmail.com:${process.env.JIRA_API_TOKEN}`
             ).toString('base64')}`,
             'Accept': 'application/json'
         }
