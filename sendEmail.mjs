@@ -53,6 +53,7 @@ const sendEmail = async (issueData) => {
         const customField10038 = issueData.issue.fields.customfield_10038 || 'No disponible'; // Institución
         const customField10039 = issueData.issue.fields.customfield_10039 || 'No disponible';  // Número de procedimiento
         const customField10042 = issueData.issue.fields.customfield_10042 || 'No disponible'; // Vencimiento de respuesta
+        const customField10046 = issueData.issue.fields.customfield_10046 || 'No disponible'; // Observaciones
 
         // Extraer los valores de la lista múltiple (customfield_10057)
         const customField10057Array = issueData.issue.fields.customfield_10057 || [];
@@ -133,9 +134,9 @@ const sendEmail = async (issueData) => {
                     <p><strong>Institucion: </strong>${customField10038}</p>
                     <p><strong>Número de procedimiento: </strong>${customField10039}</p>
                     <p><strong>Dirigido a:</strong> ${customField10057Values}</p>
-                    <p><strong>Fecha de respuesta a:</strong> ${customField10042}</p>
+                    <p><strong>Fecha de respuesta:</strong> ${customField10042}</p>
                     <h3>Observaciones:</h3>
-                    <p></p>
+                    <p>${customField10046}</p>
                     <div class="divider"></div>
                     <p>Sírvase encontrar en el correo adjunto los elementos necesarios para tramitar esta solicitud. Si tiene alguna duda puede contactarse con Paola Chaves Mora 2228-8191.</p>
                 </div>
