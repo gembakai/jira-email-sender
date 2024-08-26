@@ -152,7 +152,7 @@ const sendEmail = async (issueData) => {
 
         let info = await transporter.sendMail({
             from: '"Gembakai" <admin@gembakai.com>', // Remitente
-            to: 'wballestero@gembakai.com, contratacionadm@grupodim.net', // Destinatarios
+            to: 'wballestero@gembakai.com', // Destinatarios
             subject: `Nueva Oportunidad: ${customField10038}`, // Asunto del correo
             html: emailContent, // Contenido del correo en HTML
             attachments: attachmentFiles // Adjuntar los archivos descargados
