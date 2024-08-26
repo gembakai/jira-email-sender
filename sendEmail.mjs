@@ -95,6 +95,7 @@ const sendEmail = async (issueData) => {
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
                 .header {
+                    width: 50px;
                     text-align: left;
                     margin-bottom: 30px;
                 }
